@@ -1,0 +1,2 @@
+# BSCore
+BSCore Plugins
