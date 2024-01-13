@@ -1,0 +1,4 @@
+name: BSCore
+version: '${project.version}'
+main: com.github.beadieststar64.plugins.bsseries.bscore.BSCore
+api-version: '1.20'
