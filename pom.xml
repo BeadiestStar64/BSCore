@@ -16,14 +16,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <distributionManagement>
-      <repository>
-          <id>github</id>
-          <name>GitHub BeadiestStar64 Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/BeadiestStar64/${project.artifactId}</url>
-      </repository>
-  </distributionManagement>
-
   <build>
     <plugins>
       <plugin>
