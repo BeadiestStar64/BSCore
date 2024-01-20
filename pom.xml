@@ -6,7 +6,7 @@
 
   <groupId>com.github.BeadiestStar64.Plugins.BSseries</groupId>
   <artifactId>bscore</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
 
   <name>BSCore</name>

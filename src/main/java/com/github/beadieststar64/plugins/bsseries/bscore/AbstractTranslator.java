@@ -1,6 +1,6 @@
 package com.github.beadieststar64.plugins.bsseries.bscore;
 
-import org.bukkit.configuration.file.FileConfiguration;
+import com.github.beadieststar64.plugins.bsseries.bscore.API.Translator;
 import org.bukkit.plugin.Plugin;
 
 import java.io.*;
@@ -8,27 +8,28 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Properties;
 
-public class Translator {
+public class AbstractTranslator implements Translator {
 
     private final Plugin plugin;
-    private final YamlReader config;
-    private final String language;
-    private final String folder;
+    private String language;
+    private String folder;
 
-    public Translator(Plugin plugin, String languagePath, String folderPath) {
+    public AbstractTranslator(Plugin plugin, String languagePath, String folderPath) {
         this.plugin = plugin;
-        this.config = new YamlReader(plugin);
+        if(plugin instanceof BSCore) {
+            return;
+        }
+        AbstractYamlReader config = new AbstractYamlReader(plugin);
         this.language = config.getString(languagePath);
         this.folder = config.getString(folderPath);
     }
 
-    public Translator(Plugin plugin, String languagePath, String folderPath, BSCore core) {
-        this.plugin = core;
-        this.config = new YamlReader(plugin);
-        this.language = config.getString(languagePath);
-        this.folder = config.getString(folderPath);
+    @Override
+    public String getCustomerPlugin() {
+        return plugin.getName();
     }
 
+    @Override
     public String getTranslator(String key) {
         Properties prop = new Properties();
         File file = new File(plugin.getDataFolder() + File.separator + folder, language + ".properties");

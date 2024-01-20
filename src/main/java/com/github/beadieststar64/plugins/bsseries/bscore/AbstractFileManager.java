@@ -1,5 +1,6 @@
 package com.github.beadieststar64.plugins.bsseries.bscore;
 
+import com.github.beadieststar64.plugins.bsseries.bscore.API.FileManager;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
 
@@ -8,15 +9,21 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-public class FileManager {
+public class AbstractFileManager implements FileManager {
 
     private final Plugin plugin;
 
-    public FileManager(Plugin plugin) {
+    public AbstractFileManager(Plugin plugin) {
         this.plugin = plugin;
     }
 
-    public void init(File folder, String fileName) {
+    @Override
+    public String getCustomerPlugin() {
+        return plugin.getName();
+    }
+
+    @Override
+    public void managerInitialize(File folder, String fileName) {
         if(new File(folder, fileName).exists()) {
             return;
         }
@@ -45,6 +52,7 @@ public class FileManager {
         }
     }
 
+    @Override
     public void createFile(File folder, String fileName) {
         String filePath = folder + File.separator + fileName;
         File file = new File(fileName);
