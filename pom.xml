@@ -5,8 +5,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.BeadiestStar64.Plugins.BSseries</groupId>
-  <artifactId>BSCore</artifactId>
-  <version>1.0.2</version>
+  <artifactId>bscore</artifactId>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>BSCore</name>
@@ -15,6 +15,14 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+  <distributionManagement>
+      <repository>
+          <id>BSCore</id>
+          <name>GitHub BeadiestStar64 Apache Maven Packages</name>
+          <url>https://maven.pkg.github.com/BeadiestStar64/BSCore</url>
+      </repository>
+  </distributionManagement>
 
   <build>
     <plugins>

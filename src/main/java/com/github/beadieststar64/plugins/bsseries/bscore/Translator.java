@@ -22,6 +22,13 @@ public class Translator {
         this.folder = config.getString(folderPath);
     }
 
+    public Translator(Plugin plugin, String languagePath, String folderPath, BSCore core) {
+        this.plugin = core;
+        this.config = new YamlReader(plugin);
+        this.language = config.getString(languagePath);
+        this.folder = config.getString(folderPath);
+    }
+
     public String getTranslator(String key) {
         Properties prop = new Properties();
         File file = new File(plugin.getDataFolder() + File.separator + folder, language + ".properties");
