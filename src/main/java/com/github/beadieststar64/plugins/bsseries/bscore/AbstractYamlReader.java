@@ -61,7 +61,7 @@ public class AbstractYamlReader implements YamlReader {
 
     @Override
     public boolean checkAutoReload() {
-        if(autoReload.isEmpty()) {
+        if(autoReload == null) {
             return false;
         }
         return autoReload.get(yamlFile);
