@@ -41,4 +41,23 @@ public class AbstractTranslator implements Translator {
         }
         return prop.getProperty(key);
     }
+
+    @Override
+    public String getTranslator(String key, String[] varPath, Object[] var) {
+        Properties prop = new Properties();
+        File file = new File(plugin.getDataFolder() + File.separator + folder, language + ".properties");
+        try(InputStream stream = Files.newInputStream(file.toPath());
+            InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
+            prop.load(reader);
+        }catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        String str = prop.getProperty(key);
+        for(int i = 0, l = varPath.length; i < l; i++) {
+            str = str.replaceAll(varPath[i], var[i].toString());
+        }
+
+        return str;
+    }
 }
