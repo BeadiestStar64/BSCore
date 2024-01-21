@@ -50,6 +50,7 @@ public class AbstractTranslator implements Translator {
             InputStreamReader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
             prop.load(reader);
         }catch (IOException e) {
+            //throw error
             throw new RuntimeException(e);
         }
 
