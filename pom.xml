@@ -6,7 +6,7 @@
 
   <groupId>com.github.BeadiestStar64.Plugins.BSseries</groupId>
   <artifactId>bscore</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-Bata1-SNAPSHOP</version>
   <packaging>jar</packaging>
 
   <name>BSCore</name>
@@ -47,6 +47,14 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.3.0</version>
+          <configuration>
+              <finalName>BSCore</finalName>
+          </configuration>
       </plugin>
     </plugins>
     <resources>
